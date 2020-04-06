@@ -1,0 +1,23 @@
+<mat-toolbar class="toolbar">
+  <div class="simpleRow">
+    <img class="icon" src="/assets/icons/covid_icon.svg">
+    <h1 class="mat-display-1 primary-color textTitle">COVID-19</h1>
+    <h1 class="mat-display-1 textMakers">Makers Argentina</h1>
+  </div>
+
+  <button mat-button>
+    <div class="simpleRow">
+      <span class="mat-button primary-color" style="margin-right: 8px;"> Iniciar Sesión </span>
+      <img class="icon" src="/assets/icons/account_circle-24px_purple.svg">
+    </div>
+  </button>
+</mat-toolbar>
+
+<nav mat-tab-nav-bar class="tabGrupos">
+  <a mat-tab-link *ngFor="let link of navLinks; let i=index" [routerLink]="link.link" routerLinkActive
+    #rla="routerLinkActive" [active]="rla.isActive">
+    <mat-icon style="margin-right: 8px;" class="example-tab-icon">{{link.icon}}</mat-icon>
+    {{link.label}}
+  </a>
+</nav>
+<router-outlet></router-outlet>

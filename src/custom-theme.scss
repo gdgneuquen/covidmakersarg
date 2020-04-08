@@ -26,3 +26,8 @@ $covidmakersarg-theme: mat-light-theme($covidmakersarg-primary, $covidmakersarg-
 // that you are using.
 @include angular-material-theme($covidmakersarg-theme);
 
+// $font-family: '"MyWebFont", Arial, sans-serif'
+
+$custom-typography: mat-typography-config($font-family: "'Open Sans', sans-serif");
+@include angular-material-typography($custom-typography);
+

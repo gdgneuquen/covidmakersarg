@@ -1,0 +1,45 @@
+<div class="containerDialog">
+  <div *ngIf="authServ.user | async as user; else showLogin">
+    <h1>LOGGED</h1>
+
+
+  </div>
+
+  <ng-template #showLogin>
+    <h2 class="mat-title titleText">Iniciar Sesión</h2>
+
+    <form [formGroup]="loginForm" class="formContainer" (keydown.enter)="btn.ripple.launch({centered:true})">
+      <mat-form-field appearance="outline" color='primary' class="formInput">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="userName" placeholder="Nombre de usuario" autocomplete="username" required>
+        <mat-error *ngIf="loginForm.controls.userName.errors?.required">
+          Debe ingresar un email.
+        </mat-error>
+        <mat-error *ngIf="loginForm.controls.userName.errors?.pattern">
+          Debe ingresar un email valido.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" color='primary' class="formInput">
+        <mat-label>Contraseña</mat-label>
+        <input matInput placeholder="Password" formControlName="userPass" autocomplete="current-password"
+          [type]="passType" required>
+        <mat-icon matSuffix color='primary' matTooltip="Mostrar Contraseña" matTooltipPosition="above"
+          (click)="showPassword();" matRipples>remove_red_eye</mat-icon>
+        <mat-error *ngIf="loginForm.controls.userPass.errors?.minlength">
+          La contraseña debe tener al menos 6 digitos
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button class="btnLogin" #btn type="submit" color="primary" (click)='loginWithEmail()'
+        [disabled]='!loginForm.valid'>Iniciar
+        Sesion</button>
+    </form>
+
+    <p class="mat-body-2"> O podés iniciar sesión con:</p>
+
+    <div class='btnContainer'>
+      <img (click)="loginWithGoogle()" class="icon" src="/assets/images/btn_google_signin_dark_normal_web.png">
+    </div>
+  </ng-template>
+</div>

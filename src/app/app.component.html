@@ -1,6 +1,6 @@
 <mat-toolbar class="toolbar">
   <div class="simpleRow">
-    <img class="icon" src="/assets/icons/covid_icon.svg">
+    <img class="icon" src="/assets/icons/covid_icon.svg" alt="icon_coronavirus">
     <h1 class="mat-headline primary-color textTitle">COVID-19</h1>
     <h1 class="mat-headline textMakers">Makers Argentina</h1>
   </div>
@@ -8,7 +8,7 @@
   <button mat-button (click)="login()">
     <div class="simpleRow">
       <span class="mat-button primary-color" style="margin-right: 8px;"> Iniciar Sesión </span>
-      <img class="icon" src="/assets/icons/account_circle-24px_purple.svg">
+      <img class="icon" src="/assets/icons/account_circle-24px_purple.svg" alt="icon_account_person">
     </div>
   </button>
 </mat-toolbar>
@@ -17,7 +17,9 @@
   <a mat-tab-link *ngFor="let link of navLinks; let i=index" [routerLink]="link.link" routerLinkActive
     #rla="routerLinkActive" [active]="rla.isActive">
     <mat-icon style="margin-right: 8px;" class="example-tab-icon">{{link.icon}}</mat-icon>
-    {{link.label}}
+    <span style="font-weight: 600;">
+      {{link.label}}
+    </span>
   </a>
 </nav>
 <router-outlet></router-outlet>

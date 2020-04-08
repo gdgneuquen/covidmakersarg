@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogLoginRegisterComponent } from './shared/dialog-login-register/dialog-login-register.component';
+import { DialogLoginRegisterComponent } from './shared/components/dialog-login-register/dialog-login-register.component';
 
 @Component({
   selector: 'app-root',
@@ -30,10 +30,15 @@ export class AppComponent {
         icon: 'home',
         index: 0
       }, {
+        label: 'Stock',
+        link: './stock',
+        icon: 'build',
+        index: 1
+      }, {
         label: 'Makers',
         link: './makers',
         icon: 'people',
-        index: 1
+        index: 2
       },
     ];
   }
@@ -46,6 +51,9 @@ export class AppComponent {
         this.router.navigate(['/inicio']);
         break;
       case 1:
+        this.router.navigate(['/stock']);
+        break;
+      case 2:
         this.router.navigate(['/makers']);
         break;
       default:

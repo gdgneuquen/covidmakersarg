@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "covidmakersarg",
+      "public": "dist/covidmakersarg",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

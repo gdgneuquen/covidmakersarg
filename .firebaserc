@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "covidmakersargentina": {
+      "hosting": {
+        "covidmakersarg": [
+          "covidmakersargentina"
+        ]
+      }
+    }
+  }
+}

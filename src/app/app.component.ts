@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogLoginRegisterComponent } from './shared/dialog-login-register/dialog-login-register.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +20,7 @@ export class AppComponent {
   activeLinkIndex = -1;
 
   constructor(
+    private dialog: MatDialog,
     private router: Router,
   ) {
     this.navLinks = [
@@ -48,6 +51,20 @@ export class AppComponent {
       default:
         break;
     }
+  }
+
+  login() {
+    const dialogLOwnersWarn = this.dialog.open(DialogLoginRegisterComponent, {
+      // height: '70vh',
+      // width: '80vw',
+      panelClass: 'dialog',
+      data: {},
+      autoFocus: false
+    });
+
+    dialogLOwnersWarn.afterClosed().subscribe(result => {
+      // if (result.data) { }
+    });
   }
 
 }
